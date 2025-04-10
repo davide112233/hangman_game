@@ -15,7 +15,7 @@
 }
 
 html, body {
-    @apply overflow-hidden;
+    @apply overflow-x-hidden;
 }
 
 body {
@@ -47,4 +47,62 @@ button {
     @apply cursor-pointer p-3 w-52 rounded-lg text-center uppercase text-xl shadow-lg;
     background-color: var(--background);
     color: var(--secondary);
+}
+
+.keyboard-buttons-box {
+    @apply flex gap-3 flex-wrap justify-center;
+}
+
+.board-button {
+    @apply w-20 p-2 border rounded;
+}
+
+.triggered-button {
+    @apply bg-gray-300 cursor-not-allowed;
+}
+
+.not-triggered-button {
+    @apply bg-blue-100 hover:bg-blue-300; /* put the colors of the triggered button in the root selector */
+}
+
+.label-difficulty-box {
+    @apply flex gap-5 p-3;
+}
+
+.label-difficulty-box h1 {
+    @apply text-2xl;
+}
+
+.label-difficulty-box p {
+    @apply text-lg mt-0.5;
+}
+
+.label-difficulty-box h1, .label-difficulty-box p {
+    color: var(--accent);
+}
+
+.board-slots {
+    @apply inline-block w-6 text-center text-2xl border-b-2 mx-1;
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+.wrong-guess-box {
+    @apply mt-5 flex justify-center gap-3;
+}
+
+.game-board {
+    @apply text-center p-6;
+}
+
+.game-board h2 {
+    @apply text-3xl mb-4;
+}
+
+.game-board h2, .wrong-guess-box p {
+    color: var(--accent);
+}
+
+.output-word {
+    @apply flex justify-center space-x-2 mb-6;
 }

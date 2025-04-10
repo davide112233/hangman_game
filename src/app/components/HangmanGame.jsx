@@ -10,8 +10,10 @@ const HangmanGame = () => {
 
     return (
         <div>
-            <h1 dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(labelDifficulty) }} />
-            <p dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(difficulty) }} />
+            <div className="label-difficulty-box">
+                <h1 dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(labelDifficulty) }} />
+                <p dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(difficulty) }} />
+            </div>
             <div>
                 <GameBoard />
             </div>

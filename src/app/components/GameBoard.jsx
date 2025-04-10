@@ -2,6 +2,7 @@
 
 import useGameStore from "../utils/useGameStore";
 import { useEffect, useState } from "react";
+import DOMPurify from "isomorphic-dompurify";
 
 const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
 const maxErrors = 6;
@@ -53,26 +54,26 @@ const GameBoard = () => {
     word.split("").map((letter, index) => (
       <span
         key={index}
-        className="inline-block w-6 text-center text-2xl border-b-2 border-gray-500 mx-1"
+        className="board-slots"
       >
-        {guesses.includes(letter) ? letter : "_"}
+        {guesses.includes(letter) ? letter : ""}
       </span>
     ));
 
   return (
-    <div className="game-board text-center p-6">
-      <h2 className="text-3xl mb-4">Guess the Word</h2>
-      <div className="flex justify-center space-x-2 mb-6">{renderWord()}</div>
+    <div className="game-board">
+      <h2 dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize("guess the word") }} />
+      <div className="output-word">{renderWord()}</div>
 
-      <div className="grid grid-cols-13 gap-1 justify-center mb-6">
+      <div className="keyboard-buttons-box">
         {alphabet.map((letter) => (
           <button
             key={letter}
             onClick={() => handleGuess(letter)}
             disabled={guesses.includes(letter) || status !== "playing"}
-            className={`p-2 border rounded ${guesses.includes(letter)
-              ? "bg-gray-300 cursor-not-allowed"
-              : "bg-blue-100 hover:bg-blue-300"
+            className={`board-button ${guesses.includes(letter)
+              ? "triggered-button"
+              : "not-triggered-button"
               }`}
           >
             {letter}
@@ -80,8 +81,9 @@ const GameBoard = () => {
         ))}
       </div>
 
-      <div className="mb-4 text-xl">
-        Wrong guesses: {wrongGuesses.join(", ")} ({wrongGuesses.length}/{maxErrors})
+      <div className="mb-4 text-xl wrong-guess-box">
+        <p dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize("wrong guesses: ") }} />
+        <p>{wrongGuesses.join(", ")} ({wrongGuesses.length}/{maxErrors})</p>
       </div>
 
       {status !== "playing" && (
