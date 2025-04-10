@@ -14,7 +14,8 @@
     --secondary: black;
 }
 
-html, body {
+html,
+body {
     @apply overflow-x-hidden;
 }
 
@@ -62,7 +63,8 @@ button {
 }
 
 .not-triggered-button {
-    @apply bg-blue-100 hover:bg-blue-300; /* put the colors of the triggered button in the root selector */
+    @apply bg-blue-100 hover:bg-blue-300;
+    /* put the colors of the triggered button in the root selector */
 }
 
 .label-difficulty-box {
@@ -77,7 +79,8 @@ button {
     @apply text-lg mt-0.5;
 }
 
-.label-difficulty-box h1, .label-difficulty-box p {
+.label-difficulty-box h1,
+.label-difficulty-box p {
     color: var(--accent);
 }
 
@@ -99,7 +102,8 @@ button {
     @apply text-3xl mb-4;
 }
 
-.game-board h2, .wrong-guess-box p {
+.game-board h2,
+.wrong-guess-box p {
     color: var(--accent);
 }
 
