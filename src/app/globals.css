@@ -58,15 +58,6 @@ button {
     @apply w-20 p-2 border rounded;
 }
 
-.triggered-button {
-    @apply bg-gray-300 cursor-not-allowed;
-}
-
-.not-triggered-button {
-    @apply bg-blue-100 hover:bg-blue-300;
-    /* put the colors of the triggered button in the root selector */
-}
-
 .label-difficulty-box {
     @apply flex gap-5 p-3;
 }

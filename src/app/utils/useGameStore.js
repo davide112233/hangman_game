@@ -26,14 +26,23 @@ const useGameStore = create((set) => ({
     word: "",
     gameStage: "menu",
     guesses: [],
+    status: "playing", // 👈 aggiunto
+
     setDifficulty: (level) => set({ difficulty: level }),
     setWord: (word) => set({ word }),
     setGameStage: (stage) => set({ gameStage: stage }),
+    setStatus: (newStatus) => set({ status: newStatus }), // 👈 aggiunto
+
     addGuess: (letter) => set((state) => ({
         guesses: state.guesses.includes(letter) ? state.guesses : [...state.guesses, letter],
     })),
+
     resetGame: () => set({
-        difficulty: null, word: "", gameStage: "menu", guesses: [],
+        difficulty: null,
+        word: "",
+        gameStage: "menu",
+        guesses: [],
+        status: "playing", // 👈 reset dello stato
     }),
 }));
 
