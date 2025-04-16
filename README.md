@@ -14,7 +14,3 @@ Ho sviluppato un minigame divertente ispirandomi al gioco dell'impiccato. L'uten
 - Axios
 - Tanstack
 - Framer motion
-
-# Valutazione delle performance
-
-![Alt text](public/screenshots/performance.png)
